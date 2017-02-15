@@ -1,0 +1,53 @@
+/* Uptake Styles */
+/* 
+Logo: <meta property="og:image" content="http://uptake.com/wp-content/uploads/2015/02/uptake_logo_og.jpg">
+Fonts: <link rel="stylesheet" id="uaf_client_css-css" href="http://uptake.com/wp-content/uploads/useanyfont/uaf.css?ver=1432744432" type="text/css" media="all">
+<link rel="apple-touch-icon" sizes="57x57" href="/wp-content/uploads/fbrfg/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/wp-content/uploads/fbrfg/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/wp-content/uploads/fbrfg/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/wp-content/uploads/fbrfg/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/wp-content/uploads/fbrfg/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/wp-content/uploads/fbrfg/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/wp-content/uploads/fbrfg/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/wp-content/uploads/fbrfg/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/wp-content/uploads/fbrfg/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/wp-content/uploads/fbrfg/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/wp-content/uploads/fbrfg/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/wp-content/uploads/fbrfg/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/wp-content/uploads/fbrfg/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/wp-content/uploads/fbrfg/manifest.json">
+<link rel="shortcut icon" href="/wp-content/uploads/fbrfg/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/wp-content/uploads/fbrfg/mstile-144x144.png">
+*/
+
+body {
+	color: rgb(102, 102, 102);
+	font-family: NimbusReg_Sans;
+	font-size: 16px;
+	background: #212721;
+}
+
+h1	{
+	font-family: VitesseSans-Book;
+	font-size: 34pt;
+	line-height: 48px;
+	color: #97999b;
+}
+
+h2	{
+	font-family: VitesseSans-Book;
+	font-size: 18pt;
+	line-height: 30px;
+	color: #97999b;
+}
+	
+.orange: {color: #ff7133;} /*official orange*/
+.reading {color: orange; }
+.uptakeorange: {color: #ff7133;} 
+.uptakeblack {color: #212721; }
+.uptakebluegrey {color: #768692; }
+.uptakecoolgrey {color: #97999b; }
+.uptakewarmgrey {color: #d7d2cb; }
+
+

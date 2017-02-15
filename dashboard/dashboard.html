@@ -1,0 +1,125 @@
+<!doctype>
+<head>
+	<link type="text/css" rel="stylesheet" href="css/graph.css">
+	<link type="text/css" rel="stylesheet" href="css/detail.css">
+	<link type="text/css" rel="stylesheet" href="css/legend.css">
+	<link type="text/css" rel="stylesheet" href="css/extensions.css">
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<script src="js/rickshaw.js"></script>
+	<script type="text/javascript" src="http://cdn.jsdelivr.net/particle-api-js/5/particle.min.js"></script>
+	<style>
+		h1 {
+			font-size: 72px;
+			font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+			font-weight: 100;
+		}	
+
+		h2 {
+			font-size: 42px;
+			font-weight: 100;
+		}	
+
+		.slide {
+			color: black;
+			text-align: center;
+			margin-left: auto;
+			margin-right: auto;
+			vertical-align: middle ;
+		}
+	</style>
+
+</head>
+<body>
+
+<div id="content" class = "slide">
+	<h1> Beyond Uptake </h1>
+	<h2> Data Fellows Dashboard</h2>
+	<h3>Red: Temp (C)</h3>
+	<div id="chart1"></div>	
+		<div id="timeline"></div>
+		<div id="preview"></div>
+		<div id="legend"></div>
+</div>
+
+<div id="content" class = "slide">
+	<h3>Blue: Lux</h3>
+	<div id="chart2"></div>
+		<div id="timeline"></div>
+		<div id="preview"></div>
+		<div id="legend"></div>
+</div>
+
+<script>
+
+var tv = 1000;
+var linearScale = d3.scale.linear().domain([-1025, 1025]);
+
+// instantiate our graph!
+var graph1 = new Rickshaw.Graph( {
+	element: document.getElementById("chart1"),
+	width: 900,
+	height: 250,
+	padding: { top: 0.1 },
+	renderer: 'line',
+	series: 
+	new Rickshaw.Series.FixedDuration([{name: 'Temp1', color:'red',scale: linearScale}], undefined, {
+		timeInterval: tv,
+		maxDataPoints: 100,
+		timeBase: new Date().getTime() / 1000
+	})
+});
+
+// instantiate our graph!
+var graph2 = new Rickshaw.Graph( {
+	element: document.getElementById("chart2"),
+	width: 900,
+	height: 250,
+	padding: { top: 0.1 },
+	renderer: 'line',
+	series: 
+	new Rickshaw.Series.FixedDuration([{name: 'Lux1', color:'blue',scale: linearScale}], undefined, {
+		timeInterval: tv,
+		maxDataPoints: 100,
+		timeBase: new Date().getTime() / 1000
+	})
+});
+
+
+graph1.render();
+graph2.render();
+
+
+
+
+
+var particle = new Particle();
+var token = [YOUR PARTICLE TOKEN]; // from result of particle.login
+var devicesPr = particle.listDevices({ auth: token });
+
+//Get your devices events
+particle.getEventStream({ deviceId: [YOUR DEVICE ID], name: 'temp', auth: token }).then(function(stream) {
+  stream.on('event', function(data) {
+  	var Temp1 = data.data
+  	var graphdata = { Temp1: Temp1 };
+  	graph1.series.addData(graphdata);
+  	graph1.render();
+    console.log("Event: " + data.data);
+  });
+});
+
+//Get your devices events
+particle.getEventStream({ deviceId: [YOUR DEVICE ID], name: 'lux', auth: token }).then(function(stream) {
+  stream.on('event', function(data) {
+  	var Lux1 = data.data
+  	var graphdata = { Lux1: Lux1 };
+  	graph2.series.addData(graphdata);
+  	graph2.render();
+    console.log("Event: " + data.data);
+  });
+});
+
+
+</script>
+
+</body>
